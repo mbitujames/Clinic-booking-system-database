@@ -40,11 +40,12 @@ The database schema is normalized to **3NF** (Third Normal Form) to ensure data 
    CREATE DATABASE clinic_management;
    USE clinic_management;
 
-2. Import the SQL schema:
+2. **Import the SQL schema**:
    Execute the complete SQL script provided in clinic_management.sql
    This will create all tables, relationships, and sample data
 
-3. Verify the setup: Run the following query to ensure the tables are created:
+3. **Verify the setup: Run the following query to ensure the tables are created**:
+   ```sql
    SHOW TABLES;
 
 ## 📊 Database Schema (ERD)
@@ -54,14 +55,13 @@ Entity Relationship Diagram showing all tables and their relationships
 
 
 ## 🔍 Sample Queries
-Get all appointments for a patient:
+### Get all appointments for a patient:
     SELECT * FROM appointments WHERE patient_id = 1;
 
-Find available doctors in a department:
+### Find available doctors in a department:
     SELECT d.* FROM doctors d
     JOIN doctor_departments dd ON d.doctor_id = dd.doctor_id
     WHERE dd.department_id = 1;
-
 
 
 # Task Manager API
@@ -84,35 +84,22 @@ This project is a simple **Task Manager API** built using **FastAPI** and **MySQ
 
 ## Endpoints
 
-### 1. Create a Task
-**POST** `/tasks/`
-
-- **Request Body**:
-  ```json
-  {
-    "task_name": "string",
-    "description": "string",
-    "status": "string",
-    "due_date": "YYYY-MM-DD",
-    "user_id": integer
-  }
-
-  Installation Steps 
-1. Clone the repository:
+## Installation Steps 
+1. **Clone the repository**:
    git clone <repository-url>
    cd Clinic-booking-system-database
-2. Install dependencies:
+2. **Install dependencies**:
    pip install fastapi pydantic mysql-connector-python uvicorn
 
-3. Set up the database:
+3. **Set up the database**:
     Open MySQL and execute the Taskmanager.sql script
 
-4. Run the FastAPI application:
+4. **Run the FastAPI application**:
    uvicorn main:app --reload
 
-5. Access the API documentation at:
+5. **Access the API documentation at**:
     Swagger UI: http://127.0.0.1:8000/docs
     ReDoc: http://127.0.0.1:8000/redoc
 
-📝 License
+## 📝 License
 This project is open-source and available under the MIT License.
